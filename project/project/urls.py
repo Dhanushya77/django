@@ -21,5 +21,10 @@ from app import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',views.fun1),
-    path('fun2/<a>',views.fun2),
+    path('fun2/<int:year>/<int:salary>',views.fun2),
+    path('fun3/<int:digit>',views.fun3),
+    path('fun4/<int:unit>',views.fun4),
+    path('fun5/<city>',views.fun5),
+    path('fun6/<int:no>',views.fun6),
+    path('fun7/<int:cp>',views.fun7),
 ]
