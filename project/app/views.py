@@ -60,3 +60,21 @@ def fun7(req,cp):
     else:
         cp='Tax is ',0.15*cp
     return HttpResponse(cp)
+def fun8(req):
+    a="python"
+    b=['orange','apple','banana']
+    c=('green','yellow','red')
+    d=777
+    e={'fruit':'apple','color':'red'}
+    l=[1,2,3,4,5,6,7,8]
+    
+    
+    user={'name':'anu','age':22},{'name':'geethu','age':24},{'name':'anju','age':32},{'name':'akhil','age':42},{'name':'bodhi','age':20},{'name':'joel','age':50},
+    l1=[]
+    l2=[]
+    for i in user:
+        if i['age']<30:
+            l1.append(i)
+        else:
+            l2.append(i)
+    return render(req,'demo.html',{'a':a,'b':b,"c":c,"d":d,"e":e,"l":l,"user":user,"l1":l1,"l2":l2})
