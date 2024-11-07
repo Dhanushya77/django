@@ -28,4 +28,8 @@ urlpatterns = [
     path('fun6/<int:no>',views.fun6),
     path('fun7/<int:cp>',views.fun7),
     path('fun8/',views.fun8),
+    path('add_std',views.add_std),
+    path('edit/<id>',views.edit_std),
+    path('delete/<id>',views.delete_std),
+    
 ]

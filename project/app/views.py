@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
 # Create your views here.
 def fun1(req):
@@ -78,3 +78,39 @@ def fun8(req):
         else:
             l2.append(i)
     return render(req,'demo.html',{'a':a,'b':b,"c":c,"d":d,"e":e,"l":l,"user":user,"l1":l1,"l2":l2})
+
+std=[{'roll_no': '1', 'name': 'dhanushya', 'age': '22'}, {'roll_no': '2', 'name': 'anu', 'age': '24'}, {'roll_no': '3', 'name': 'adhi', 'age': '23'}]
+def add_std(req):
+    if req.method == 'POST':
+        roll = req.POST['roll_no']
+        name = req.POST['name']
+        age = req.POST['age']
+        std.append({'roll_no':roll,'name':name,"age":age})
+        print(std)
+        return redirect(add_std)
+    else:
+        return render(req,'add_std.html',{"std":std})
+def edit_std(req,id):
+    print(id)
+    for i in std:
+        if i['roll_no'] == id:
+            student=i
+            print(student)
+            
+    if req.method == 'POST':
+        roll = req.POST['roll_no']
+        name = req.POST['name']
+        age = req.POST['age']
+        student['roll_no'] = roll
+        student['name'] = name
+        student['age'] = age
+        return redirect(add_std)
+    else:
+        return render(req,'edit.html',{'data':student})
+        
+def delete_std(req,id):
+    for i in std:
+        if i['roll_no'] == id:
+            std.remove(i)
+    return redirect(add_std)
+            
