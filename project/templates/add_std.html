@@ -26,8 +26,9 @@
             <td>{{i.name}}</td>
             <td>{{i.age}}</td>
             <td>
-                <a href="edit/{{i.roll_no}}">Edit</a>
-                <a href="delete/{{i.roll_no}}">Delete</a>
+                {% comment %} i.roll_no when using list {% endcomment %}
+                <a href="edit/{{i.pk}}">Edit</a>   
+                <a href="delete/{{i.pk}}">Delete</a>
             </td>
 
         </tr>
