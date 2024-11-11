@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="add_std" method="post">
+        {% csrf_token %}
+        <input type="number" name="roll_no" id="" placeholder="roll no">
+        <input type="text" name="name" id="" placeholder="name">
+        <input type="number" name="age" id="" placeholder="age">
+        <input type="submit" value="add">
+    </form>
+
+   <table>
+        <tr>
+            <th>Roll No</th>
+            <th>Name</th>
+            <th>Age</th>
+        </tr>
+        {% for i in std %}
+        <tr>
+            <td>{{i.roll_no}}</td>
+            <td>{{i.name}}</td>
+            <td>{{i.age}}</td>
+            <td>
+                {% comment %} i.roll_no when using list {% endcomment %}
+                <a href="edit/{{i.pk}}">Edit</a>   
+                <a href="delete/{{i.pk}}">Delete</a>
+            </td>
+
+        </tr>
+        {% endfor %}
+    </table>
+
+</body>
+</html>
